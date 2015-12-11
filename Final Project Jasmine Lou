@@ -1,2 +1,20 @@
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
+
+game = input('what game would you like to play: flappy bird, doodle jump, platformer')
+pink = Color(0xffeeee, 1.0)
+coolline = Color(0x000000, 1.0)
+
+if game == 'flappy bird':
+    #play flappy bird
+    class Bird(Sprite):
+        bird = RectangleAsset(30, 30, coolline, pink)
+        def __init__(self, x, y):
+            super().__init__(Bird.bird, (x, y))
+            self.x = x
+            self.y = y
+        
+elif game =='platformer':
+    #play platformer
+    0 = 0
 print("Hello")
 print("Goodbye")
