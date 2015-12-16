@@ -14,12 +14,6 @@ noline = LineStyle(0, blue)
 coolline = LineStyle(2, blue)
 redline = LineStyle(1, red)
 
-"""class Block(Sprite):
-    block = RectangleAsset(40, 40, thinline, blue)
-    def __init__(self, x, y):
-        super().__init__(Block.block, (x, y))
-        self.x = x
-        self.y = y"""
 
 
 black = Color(0, 1)
@@ -43,12 +37,8 @@ class Spring(Sprite):
         self.gravity = 0
     
     def step(self):
-        self.gravity += 0.3
-        self.y += self.gravity
-        scollisions = self.collidingWithSprites(Block)
-        if scollisions:
-            self.y -= self.gravity
-            self.gravity = 0
+        self.y += 0.3
+
 
 gravity = 0
 
