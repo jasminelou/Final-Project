@@ -1,4 +1,5 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
+from random import randint
 
 SCREEN_WIDTH = 1240
 SCREEN_HEIGHT = 1000
@@ -38,6 +39,8 @@ class Spring(Sprite):
     
     def step(self):
         self.y += 0.3
+        if self.gravity%10 == 0:
+            
 
 
 gravity = 0
