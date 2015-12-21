@@ -50,7 +50,7 @@ class Spring(Sprite):
     
     def step(self):
         self.y += 0.3
-        if self.gravity%10 == 0:
+        if self.gravity%30 == 0:
             RealSpring(randint(1,1000), 0)
         self.gravity+=1
 
