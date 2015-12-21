@@ -29,6 +29,14 @@ class SSprite(Sprite):
         self.x = x
         self.y = y
         
+class RealSpring(Sprite):
+    realspring = RectangleAsset(35, 15, blkline, red)
+    def __init__(self, x, y):
+        super().__init__(RealSpring.realspring, (x,y))
+        self.x = x
+        self.y = y
+        self.gravity = 0
+        
 class Spring(Sprite):
     spring = RectangleAsset(35, 15, blkline, red)
     def __init__(self, x, y):
@@ -40,7 +48,7 @@ class Spring(Sprite):
     def step(self):
         self.y += 0.3
         if self.gravity%10 == 0:
-            Spring(randint(1,1000), 0)
+            RealSpring(randint(1,1000), 0)
         self.gravity+=1
 
 
