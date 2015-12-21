@@ -37,6 +37,9 @@ class RealSpring(Sprite):
         self.y = y
         self.gravity = 0
         
+    def step(self):
+        self.y += 0.3
+        
 class Spring(Sprite):
     spring = RectangleAsset(35, 15, blkline, red)
     def __init__(self, x, y):
