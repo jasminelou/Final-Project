@@ -1,7 +1,7 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from random import randint
 
-SCREEN_WIDTH = 1240
+SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
 blue = Color(0x2EFEC8, 1.0)
@@ -29,7 +29,7 @@ class SSprite(Sprite):
         self.x = x
         self.y = y
         
-class RealSpring(Sprite):
+class RealSpring(Sprite): 
     realspring = RectangleAsset(35, 15, blkline, red)
     def __init__(self, x, y):
         super().__init__(RealSpring.realspring, (x,y))
@@ -47,12 +47,15 @@ class Spring(Sprite):
         self.x = x
         self.y = y
         self.gravity = 0
+        self.springlist = []
     
     def step(self):
         self.y += 0.3
         if self.gravity%30 == 0:
-            RealSpring(randint(1,1000), 0)
+            self.springlist.append(RealSpring(randint(1,1000), 0))
         self.gravity+=1
+        for spring in self.springlist:
+            spring.step()
 
 
 gravity = 0
