@@ -4,8 +4,8 @@ from random import randint
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
-blue = Color(0x2EFEC8, 1.0)
-black = Color(0x000000, 1.0)
+blue = Color(0x1EEFE8, 1.0)
+black = Color(0xFF0000, 1.0)
 pink = Color(0xFF00FF, 1.0)
 red = Color(0xFF5733, 1.0)
 
@@ -23,7 +23,7 @@ bg = Sprite(bg_asset, (0,0))
 
 
 class SSprite(Sprite):
-    dog = RectangleAsset(30, 30, coolline, pink)
+    dog = RectangleAsset(30, 30, coolline, blue)
     def __init__(self, x, y):
         super().__init__(SSprite.dog, (x, y))
         self.x = x
@@ -38,10 +38,10 @@ class RealSpring(Sprite):
         self.gravity = 0
         
     def step(self):
-        self.y += 0.3
+        self.y += 1
         
 class Spring(Sprite):
-    spring = RectangleAsset(35, 15, blkline, red)
+    spring = RectangleAsset(1, 1, blkline, red)
     def __init__(self, x, y):
         super().__init__(Spring.spring, (x,y))
         self.x = x
@@ -50,8 +50,8 @@ class Spring(Sprite):
         self.springlist = []
     
     def step(self):
-        self.y += 0.3
-        if self.gravity%30 == 0:
+        self.y += 1
+        if self.gravity%100 == 0:
             self.springlist.append(RealSpring(randint(1,1000), 0))
         self.gravity+=1
         for spring in self.springlist:
@@ -128,7 +128,7 @@ class FinalProject(App):
             gravity += 0.3
             self.dogsprite.y += gravity
             #collisions = self.dogsprite.collidingWithSprites(Block)
-            spcollisions = self.dogsprite.collidingWithSprites(Spring)
+            spcollisions = self.dogsprite.collidingWithSprites(RealSpring)
             #if collisions:
                 #self.dogsprite.y -= gravity
                 #gravity = 0
@@ -137,6 +137,8 @@ class FinalProject(App):
         springs = self.getSpritesbyClass(Spring)
         for spring in springs:
             spring.step()
+        
+        
             
 myapp = FinalProject(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
