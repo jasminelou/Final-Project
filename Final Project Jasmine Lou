@@ -61,7 +61,7 @@ class RealSpring(Sprite):
         global bub
         self.y += 1
         if self.y > 500:
-            self.destroy(self.springlist[fish+1])
+            self.springlist[0].destroy()  #still has issues
         print(bub)
         bub = bub+0.2
 
