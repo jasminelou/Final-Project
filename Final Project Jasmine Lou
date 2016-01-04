@@ -64,7 +64,7 @@ class RealSpring(Sprite):
             self.destroy()
             springlist.remove(self)
         print(bub)
-        bub = bub+0.2
+        bub = bub+1
 
 gravity = 0
 
