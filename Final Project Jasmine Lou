@@ -14,7 +14,7 @@ blkline = LineStyle(1, black)
 noline = LineStyle(0, blue)
 coolline = LineStyle(2, blue)
 redline = LineStyle(1, red)
-
+bub = 0
 
 
 black = Color(0, 1)
@@ -58,13 +58,12 @@ class RealSpring(Sprite):
         self.gravity = 0
         
     def step(self):
+        global bub
         self.y += 1
         if self.y > 500:
             self.destroy(self.springlist[fish+1])
-        scorecool = 0
-        scorecool += 1
-        if program dead:
-            print(supercool)
+        print(bub)
+        bub = bub+0.2
 
 gravity = 0
 
