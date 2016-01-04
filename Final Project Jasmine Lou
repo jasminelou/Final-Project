@@ -71,69 +71,37 @@ class FinalProject(App):
         self.spring = 0
         self.dogsprite = None
         self.listenKeyEvent('keydown', 'p', self.buildDog)
-        #self.listenKeyEvent('keydown', 'w', self.buildBlock)
         self.listenMouseEvent('mousemove', self.motion)
         self.listenKeyEvent('keydown', 'right arrow', self.moveDogR)
         self.listenKeyEvent('keydown', 'left arrow', self.moveDogL)
-        #self.listenKeyEvent('keydown', 'up arrow', self.moveDogU)
-        #self.listenKeyEvent('keydown', 'down arrow', self.moveDogD)
         self.listenKeyEvent('keydown', 's', self.buildSpring)
-    
+        
     def motion(self, event):
         self.mousex = event.x
         self.mousey = event.y
-    
+        
     def buildDog (self, event):
         global gravity
         if self.dogsprite:
             self.dogsprite.destroy()
             gravity = 0
         self.dogsprite = SSprite(self.mousex - 15, self.mousey - 15)
-    
-    """def buildBlock(self, event):
-        x = self.mousex - self.mousex%40
-        y = self.mousey - self.mousey%40
-        Block(x-10, y-10)"""
         
     def buildSpring(self, event):
         self.spring = Spring(self.mousex-7.5, self.mousey-2.5)
         
     def moveDogR(self, event):
         self.dogsprite.x += 5
-        """collisions = self.dogsprite.collidingWithSprites(Block)
-        if collisions:
-            self.dogsprite.x -= 5"""
-            
+
     def moveDogL(self, event):
         self.dogsprite.x -= 5
-        """collisions = self.dogsprite.collidingWithSprites(Block)
-        if collisions:
-            self.dogsprite.x += 5"""
-            
-    """def moveDogU(self, event):
-        global gravity
-        if gravity == 0:
-            gravity = -7
-            collisions = self.dogsprite.collidingWithSprites(Block)
-            if collisions:
-                self.dogsprite.y += 50"""
 
-    """def moveDogD(self, event):
-        self.dogsprite.y += 5
-        collisions = self.dogsprite.collidingWithSprites(Block)
-        if collisions:
-            self.dogsprite.y -= 5"""
-            
     def step(self):
         global gravity
         if self.dogsprite:
             gravity += 0.3
             self.dogsprite.y += gravity
-            #collisions = self.dogsprite.collidingWithSprites(Block)
             spcollisions = self.dogsprite.collidingWithSprites(RealSpring)
-            #if collisions:
-                #self.dogsprite.y -= gravity
-                #gravity = 0
             if spcollisions:
                 gravity = -8
         springs = self.getSpritesbyClass(Spring)
