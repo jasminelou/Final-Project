@@ -20,27 +20,6 @@ redline = LineStyle(1, red)
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
 bg = Sprite(bg_asset, (0,0))
-
-
-class SSprite(Sprite):
-    dog = RectangleAsset(30, 30, coolline, blue)
-    def __init__(self, x, y):
-        super().__init__(SSprite.dog, (x, y))
-        self.x = x
-        self.y = y
-        
-class RealSpring(Sprite): 
-    realspring = RectangleAsset(35, 15, blkline, red)
-    def __init__(self, x, y):
-        super().__init__(RealSpring.realspring, (x,y))
-        self.x = x
-        self.y = y
-        self.gravity = 0
-        
-    def step(self):
-        self.y += 1
-        if self.y > 500:
-            self.destroy(self.springlist[fish+1])
         
 class Spring(Sprite):
     spring = RectangleAsset(1, 1, blkline, black)
@@ -62,6 +41,30 @@ class Spring(Sprite):
         for spring in self.springlist:
             spring.step()
 
+
+class SSprite(Sprite):
+    dog = RectangleAsset(30, 30, coolline, blue)
+    def __init__(self, x, y):
+        super().__init__(SSprite.dog, (x, y))
+        self.x = x
+        self.y = y
+        
+class RealSpring(Sprite): 
+    realspring = RectangleAsset(35, 15, blkline, red)
+    def __init__(self, x, y):
+        super().__init__(RealSpring.realspring, (x,y))
+        self.x = x
+        self.y = y
+        self.gravity = 0
+        
+    def step(self):
+        self.y += 1
+        if self.y > 500:
+            self.destroy(self.springlist[fish+1])
+        scorecool = 0
+        scorecool += 1
+        if program dead:
+            print(supercool)
 
 gravity = 0
 
