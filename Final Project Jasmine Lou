@@ -39,6 +39,8 @@ class RealSpring(Sprite):
         
     def step(self):
         self.y += 1
+        if self.y > 500:
+            self.destroy(self.springlist[fish+1])
         
 class Spring(Sprite):
     spring = RectangleAsset(1, 1, blkline, black)
@@ -48,6 +50,7 @@ class Spring(Sprite):
         self.y = y
         self.gravity = 0
         self.springlist = []
+        fish = 0
     
     def step(self):
         self.y += 1
