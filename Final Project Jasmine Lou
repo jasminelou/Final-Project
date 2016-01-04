@@ -39,7 +39,7 @@ class Spring(Sprite):
             self.springlist.append(RealSpring(randint(333,666), 0))
         self.gravity+=1
         for spring in self.springlist:
-            spring.step()
+            spring.step(self.springlist)
 
 
 class SSprite(Sprite):
@@ -57,11 +57,12 @@ class RealSpring(Sprite):
         self.y = y
         self.gravity = 0
         
-    def step(self):
+    def step(self, springlist):
         global bub
         self.y += 1
         if self.y > 500:
-            self.springlist.pop(0).destroy()
+            self.destroy()
+            springlist.remove(self)
         print(bub)
         bub = bub+0.2
 
