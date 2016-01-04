@@ -41,7 +41,7 @@ class RealSpring(Sprite):
         self.y += 1
         
 class Spring(Sprite):
-    spring = RectangleAsset(1, 1, blkline, red)
+    spring = RectangleAsset(1, 1, blkline, black)
     def __init__(self, x, y):
         super().__init__(Spring.spring, (x,y))
         self.x = x
@@ -53,6 +53,8 @@ class Spring(Sprite):
         self.y += 1
         if self.gravity%100 == 0:
             self.springlist.append(RealSpring(randint(1,1000), 0))
+        if self.gravity%441 == 0:
+            self.springlist.append(RealSpring(randint(333,666), 0))
         self.gravity+=1
         for spring in self.springlist:
             spring.step()
