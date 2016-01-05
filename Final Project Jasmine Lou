@@ -16,7 +16,6 @@ coolline = LineStyle(2, blue)
 redline = LineStyle(1, red)
 bub = 0
 
-
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
 bg = Sprite(bg_asset, (0,0))
@@ -41,7 +40,6 @@ class Spring(Sprite):
         for spring in self.springlist:
             spring.step(self.springlist)
 
-
 class SSprite(Sprite):
     dog = RectangleAsset(30, 30, coolline, blue)
     def __init__(self, x, y):
@@ -60,11 +58,11 @@ class RealSpring(Sprite):
     def step(self, springlist):
         global bub
         self.y += 1
-        if self.y > 500:
+        if self.y > 900:
             self.destroy()
             springlist.remove(self)
-        print(bub)
-        bub = bub+1
+        #print(bub)
+        #bub = bub+1
 
 gravity = 0
 
@@ -88,10 +86,12 @@ class FinalProject(App):
         
     def buildDog (self, event):
         global gravity
+        global bub
         if self.dogsprite:
             self.dogsprite.destroy()
             gravity = 0
         self.dogsprite = SSprite(self.mousex - 15, self.mousey - 15)
+
         
     def buildSpring(self, event):
         self.spring = Spring(self.mousex-7.5, self.mousey-2.5)
@@ -104,17 +104,19 @@ class FinalProject(App):
 
     def step(self):
         global gravity
+        global bub
         if self.dogsprite:
             gravity += 0.3
             self.dogsprite.y += gravity
             spcollisions = self.dogsprite.collidingWithSprites(RealSpring)
             if spcollisions:
                 gravity = -8
+                bub += 1
         springs = self.getSpritesbyClass(Spring)
         for spring in springs:
             spring.step()
-        
-        
+        if self.dogsprite:
+            print(bub)
             
 myapp = FinalProject(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
