@@ -4,10 +4,10 @@ from random import randint
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
-blue = Color(0x1EEFE8, 1.0)
+blue = Color(0x58D3F7, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
-red = Color(0xFF5733, 1.0)
+red = Color(0x8258FA, 1.0)
 
 thinline = LineStyle(2, pink)
 blkline = LineStyle(1, black)
@@ -121,7 +121,8 @@ class FinalProject(App):
         for spring in springs:
             spring.step()
         if self.dogsprite:
-            print(bub)
+            if self.dogsprite.y>900:
+                print(bub)
             
 myapp = FinalProject(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
