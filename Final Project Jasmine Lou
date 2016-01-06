@@ -5,7 +5,7 @@ SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
 blue = Color(0x1EEFE8, 1.0)
-black = Color(0xFF0000, 1.0)
+black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
 red = Color(0xFF5733, 1.0)
 
@@ -15,6 +15,7 @@ noline = LineStyle(0, blue)
 coolline = LineStyle(2, blue)
 redline = LineStyle(1, red)
 bub = 0
+#level = input("level number .01 to 5")
 
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
@@ -57,6 +58,7 @@ class RealSpring(Sprite):
         
     def step(self, springlist):
         global bub
+        global level
         self.y += 1
         if self.y > 900:
             self.destroy()
@@ -73,6 +75,7 @@ class FinalProject(App):
         self.mousey = 0
         self.dog = 0
         self.spring = 0
+        self.done = 0
         self.dogsprite = None
         self.listenKeyEvent('keydown', 'p', self.buildDog)
         self.listenMouseEvent('mousemove', self.motion)
@@ -94,7 +97,9 @@ class FinalProject(App):
 
         
     def buildSpring(self, event):
-        self.spring = Spring(self.mousex-7.5, self.mousey-2.5)
+        if self.done != 1:
+            self.spring = Spring(self.mousex-7.5, self.mousey-2.5)
+            self.done = 1
         
     def moveDogR(self, event):
         self.dogsprite.x += 5
