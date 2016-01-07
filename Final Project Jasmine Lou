@@ -11,7 +11,7 @@ is. To move your sprite left and right, use the arrow keys.
 
     Objective: The objective of the game is to have your sprite stay on the screen
 for as long as you can by using the springs that randomly start falling. If you hit
-the spring, your sprite will automatically jump upwards. Scoring is basedon how
+the spring, your sprite will automatically jump upwards. Scoring is based on how
 long you can keep your sprite from falling off the screen.
 
     To access our program, find the user ‘jasminelou’ on github and open the file
@@ -40,9 +40,6 @@ what to do when the ‘p’ key is pressed. There, the program checks if you’v
 created a sprite/player, and if you haven’t, it will create one at the location of
 your mouse. We were able to use the mouse tracking function in ggame to make that
 happen.
-
-
-
 
 
 """
