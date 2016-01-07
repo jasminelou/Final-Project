@@ -23,6 +23,23 @@ purple rectangles and the sprite is a blue square.
 
 Design Specification:
 
+	To build our program, we used Python 3, ggame, and runpython.com. We started
+by creating two classes: one for the sprite and one for the spring. A third class
+was later added on, which controlled the creation of all the springs and the sprite.
+Inside the third class, which we called ‘FinalProject’, the program listens for
+when certain keys are pressed and responds accordingly. We used the keyboard
+recognition functions from ggame to achieve this. When the user presses the ‘s’
+key, the class tells the program to look for the definition inside the class that
+has to do with the ‘s’ key being pressed. Inside the def spring, the program first
+checks if you’ve already created springs, and if you have not, it triggers the
+creation of a fourth class called 'RealSprings', and the code inside the RealSprings
+class creates them randomly at the top of the screen.
+
+When the user presses the ‘p’ key, the program will go down to the part that defines
+what to do when the ‘p’ key is pressed. There, the program checks if you’ve already
+created a sprite/player, and if you haven’t, it will create one at the location of
+your mouse. We were able to use the mouse tracking function in ggame to make that
+happen.
 
 
 
