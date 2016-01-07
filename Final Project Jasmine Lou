@@ -153,7 +153,7 @@ class FinalProject(App):
         for spring in springs:
             spring.step()
         if self.dogsprite:
-            if self.dogsprite.y>900 and self.dogsprite.y<910:
+            if self.dogsprite.y>900 and self.dogsprite.y<950:
                 print(bub)
             
 myapp = FinalProject(SCREEN_WIDTH, SCREEN_HEIGHT)
