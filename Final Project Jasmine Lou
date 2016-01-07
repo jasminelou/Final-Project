@@ -1,3 +1,35 @@
+"""
+Funtional Specification:
+
+    For our final project, Dina and I decided to make a replica of the game Doodle
+Jump. (Some aspects are still in progress.)
+
+    Player Controls: To play, press the ‘s’ key to start creating random springs.
+Then, place your mouse where you want to create your sprite and when you’re ready
+to create the sprite, press the ‘p’ key and a sprite will appear where your mouse
+is. To move your sprite left and right, use the arrow keys.
+
+    Objective: The objective of the game is to have your sprite stay on the screen
+for as long as you can by using the springs that randomly start falling. If you hit
+the spring, your sprite will automatically jump upwards. Scoring is basedon how
+long you can keep your sprite from falling off the screen.
+
+    To access our program, find the user ‘jasminelou’ on github and open the file
+that reads “Final Project” in Run Python and run the program. A new tab should open
+with a black background.
+
+    The graphics in our game are pretty simple and straightforward: Springs are
+purple rectangles and the sprite is a blue square.
+
+Design Specification:
+
+
+
+
+
+
+"""
+
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from random import randint
 
@@ -121,7 +153,7 @@ class FinalProject(App):
         for spring in springs:
             spring.step()
         if self.dogsprite:
-            if self.dogsprite.y>900:
+            if self.dogsprite.y>900 and self.dogsprite.y<910:
                 print(bub)
             
 myapp = FinalProject(SCREEN_WIDTH, SCREEN_HEIGHT)
